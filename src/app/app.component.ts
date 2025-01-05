@@ -16,11 +16,15 @@ export class AppComponent {
     email: new FormControl('')
   });
 
- 
+  public myName:any = "";
+  public myAge:any = "";
+  public myEmail:any = "";
   handleSubmit() {
     console.log(this.signUp.value.name);
     console.log(this.signUp.value.age);
     console.log(this.signUp.value.email);
-   
+    this.myName = this.signUp.value.name;
+    this.myAge = this.signUp.value.age;
+    this.myEmail = this.signUp.value.email;
   }
 }
