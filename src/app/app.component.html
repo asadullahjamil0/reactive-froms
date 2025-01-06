@@ -10,19 +10,55 @@
         <br>
         <div class="form-group">
           <label for="">Enter Name:</label>
-          <input type="text" name="name" class="form-control" formControlName="name">
+          <input type="text" name="name" [class.is-invalid]="f['name'].invalid && f['name'].touched"
+            class="form-control" formControlName="name">
         </div>
+        <div class="alert alert-danger" *ngIf="f['name'].invalid && f['name'].touched">
+          <div *ngIf="f['name'].errors && f['name'].errors['required']">
+            <p>Name is required</p>
+          </div>
+          <div *ngIf="f['name'].errors && f['name'].errors['minlength']">
+            <p>Minlength must be 3</p>
+          </div>
+          <div *ngIf="f['name'].errors && f['name'].errors['maxlength']">
+            <p>Name must be under 20 characters</p>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="">Enter Age:</label>
-          <input type="number" name="age" class="form-control" formControlName="age">
+          <input type="number" name="age" [class.is-invalid]="f['age'].invalid && f['age'].touched" class="form-control"
+            formControlName="age">
         </div>
+        <div class="alert alert-danger" *ngIf="f['age'].invalid && f['age'].touched">
+          <div *ngIf="f['age'].errors && f['age'].errors['required']">
+            <p>Age is required</p>
+          </div>
+          <div *ngIf="f['age'].errors && f['age'].errors['min']">
+            <p>Age must be above 10</p>
+          </div>
+          <div *ngIf="f['age'].errors && f['age'].errors['max']">
+            <p>Age must under 60</p>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="">Enter Email:</label>
-          <input type="text" name="email" class="form-control"  formControlName="email">
+          <input type="text" name="email" [class.is-invalid]="f['email'].invalid && f['email'].touched"
+            class="form-control" formControlName="email">
         </div>
+        <div class="alert alert-danger" *ngIf="f['email'].invalid && f['email'].touched">
+          <div *ngIf="f['email'].errors && f['email'].errors['required']">
+            <p>Email is required</p>
+          </div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">
+            <p>Invlaid Email</p>
+          </div>
+        </div>
+
         <br>
         <div class="d-grid">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" [class.disabled]="signUp.invalid" class="btn btn-primary">Submit</button>
         </div>
 
       </form>
