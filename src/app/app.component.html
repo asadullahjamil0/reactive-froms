@@ -91,7 +91,8 @@
         <label for="">Select Hobbies:</label>
         <div *ngFor="let hobby of arrayHobbies;let i from index">
           <label for="">
-            <input type="checkbox" (change)="onChange($event)" class="form-check-input" name="hobbies" [value]="hobby" id="">
+            <input type="checkbox" (change)="onChange($event)" class="form-check-input" name="hobbies" [value]="hobby"
+              id="">
             {{hobby}}
           </label>
         </div>
@@ -106,6 +107,8 @@
       <h3>My Name is : {{myName}}</h3>
       <h3>My Age is : {{myAge}}</h3>
       <h4>My Email is : {{myEmail}}</h4>
+      <h2 appChangeMe myColor="red" myBgColor="yellow">This is ChangeMe Directive</h2>
+      <h2 appChangeMe myColor="green" myBgColor="pink">Welcome to Pakistan</h2>
     </div>
   </div>
 </div>
